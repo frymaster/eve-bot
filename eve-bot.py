@@ -413,7 +413,6 @@ class mumbleConnection(threading.Thread):
         except:
             print time.strftime("%a, %d %b %Y %H:%M:%S +0000"),self.threadName,"Couldn't connect to server"
             return
-        self.socket.setblocking(0)
         print time.strftime("%a, %d %b %Y %H:%M:%S +0000"),self.threadName,"connected to server"
         pbMess = Mumble_pb2.Version()
         pbMess.release="1.2.0"
