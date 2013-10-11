@@ -140,7 +140,7 @@ class timedWatcher(threading.Thread):
                         if len(self.plannedPackets)==0:
                             break
                     self.socketLock.release()
-            sleeptime = 10
+            sleeptime = 0.1
             if len(self.plannedPackets) > 0:
                 sleeptime = self.plannedPackets[0][0]-t
             altsleeptime=self.nextPing-t
@@ -326,8 +326,8 @@ class mumbleConnection(threading.Thread):
             if killChildrenImmediately:
                 self.mimicList[item]["thread"].wrapUpThread(True)
 
-        
-    
+
+
     def readPacket(self):
         self.checkThreads()
         meta=self.readTotally(6)
@@ -336,7 +336,7 @@ class mumbleConnection(threading.Thread):
             return
         msgType,length=struct.unpack(headerFormat,meta)
         stringMessage=self.readTotally(length)
-        if not stringMessage:
+        if stringMessage is None:
             self.wrapUpThread(True)
             return
         #Type 5 = ServerSync
