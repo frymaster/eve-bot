@@ -186,7 +186,7 @@ class mumbleConnection(threading.Thread):
         if ((v & 0x80) == 0x00):
             return ((v & 0x7F),1)
         elif ((v & 0xC0) == 0x80):
-            return ((v & 0x4F) << 8 | ord(m[si+1]),2)
+            return ((v & 0x3F) << 8 | ord(m[si+1]),2)
         elif ((v & 0xF0) == 0xF0):
             if ((v & 0xFC) == 0xF0):
                 return (ord(m[si+1]) << 24 | ord(m[si+2]) << 16 | ord(m[si+3]) << 8 | ord(m[si+4]),5)
