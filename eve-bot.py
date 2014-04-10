@@ -416,11 +416,11 @@ class mumbleConnection(threading.Thread):
             return
         print time.strftime("%a, %d %b %Y %H:%M:%S +0000"),self.threadName,"connected to server"
         pbMess = Mumble_pb2.Version()
-        pbMess.release="1.2.0"
+        pbMess.release="1.2.5"
         #pbMess.version=66048
-        pbMess.version=66052
+        pbMess.version=66053
         pbMess.os=platform.system()
-        pbMess.os_version="evebot1.0.1"
+        pbMess.os_version="evebot1.0.2"
 
         initialConnect=self.packageMessageForSending(messageLookupMessage[type(pbMess)],pbMess.SerializeToString())
 
@@ -428,10 +428,16 @@ class mumbleConnection(threading.Thread):
         pbMess.username=self.nickname
         if self.password!=None:
             pbMess.password=self.password
+        celtversion=pbMess.celt_versions.append(-2147483632)
         celtversion=pbMess.celt_versions.append(-2147483637)
         pbMess.opus = True
 
         initialConnect+=self.packageMessageForSending(messageLookupMessage[type(pbMess)],pbMess.SerializeToString())
+
+        pbMess = Mumble_pb2.CodecVersion()
+        pbMess.alpha=-2147483637
+        pbMess.beta=0
+        pbMess.prefer_alpha=True
 
         if not self.sendTotally(initialConnect):
             return
