@@ -67,8 +67,8 @@ headerFormat=">HI"
 eavesdropper=None
 messageLookupMessage={Mumble_pb2.Version:0,Mumble_pb2.UDPTunnel:1,Mumble_pb2.Authenticate:2,Mumble_pb2.Ping:3,Mumble_pb2.Reject:4,Mumble_pb2.ServerSync:5,
         Mumble_pb2.ChannelRemove:6,Mumble_pb2.ChannelState:7,Mumble_pb2.UserRemove:8,Mumble_pb2.UserState:9,Mumble_pb2.BanList:10,Mumble_pb2.TextMessage:11,Mumble_pb2.PermissionDenied:12,
-        Mumble_pb2.ACL:13,Mumble_pb2.QueryUsers:14,Mumble_pb2.CryptSetup:15,Mumble_pb2.ContextActionAdd:16,Mumble_pb2.ContextAction:17,Mumble_pb2.UserList:18,Mumble_pb2.VoiceTarget:19,
-        Mumble_pb2.PermissionQuery:20,Mumble_pb2.CodecVersion:21}
+        Mumble_pb2.ACL:13,Mumble_pb2.QueryUsers:14,Mumble_pb2.CryptSetup:15,Mumble_pb2.ContextActionModify:16,Mumble_pb2.ContextAction:17,Mumble_pb2.UserList:18,Mumble_pb2.VoiceTarget:19,
+        Mumble_pb2.PermissionQuery:20,Mumble_pb2.CodecVersion:21, Mumble_pb2.UserStats:22, Mumble_pb2.RequestBlob:23, Mumble_pb2.ServerConfig:24,Mumble_pb2.SuggestConfig:25}
 messageLookupNumber={}
 threadNumber=0
 
